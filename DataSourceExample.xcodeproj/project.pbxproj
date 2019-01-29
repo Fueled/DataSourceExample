@@ -57,6 +57,9 @@
 		02FE33FC1B5CEE4B00D2F5AD /* InputFormDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FE33FB1B5CEE4B00D2F5AD /* InputFormDatePickerCell.swift */; };
 		02FE33FE1B5CF80100D2F5AD /* InputFormAccessoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FE33FD1B5CF80100D2F5AD /* InputFormAccessoryItem.swift */; };
 		02FE34001B5CF90000D2F5AD /* InputFormAccessoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FE33FF1B5CF90000D2F5AD /* InputFormAccessoryCell.swift */; };
+		6BD7F83F2200575800F9BA19 /* FueledUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD7F83E2200575800F9BA19 /* FueledUtils.framework */; };
+		6BD7F840220057C100F9BA19 /* FueledUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD7F83E2200575800F9BA19 /* FueledUtils.framework */; };
+		6BD7F841220057C100F9BA19 /* FueledUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD7F83E2200575800F9BA19 /* FueledUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +72,7 @@
 				0286CFBA1BE2815000F76C86 /* Result.framework in Embed Frameworks */,
 				0286CFB61BE2815000F76C86 /* DataSource.framework in Embed Frameworks */,
 				0286CFB81BE2815000F76C86 /* ReactiveCocoa.framework in Embed Frameworks */,
+				6BD7F841220057C100F9BA19 /* FueledUtils.framework in Embed Frameworks */,
 				027BAC221DEF253500F97ACC /* ReactiveSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -125,6 +129,7 @@
 		02FE33FB1B5CEE4B00D2F5AD /* InputFormDatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputFormDatePickerCell.swift; sourceTree = "<group>"; };
 		02FE33FD1B5CF80100D2F5AD /* InputFormAccessoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputFormAccessoryItem.swift; sourceTree = "<group>"; };
 		02FE33FF1B5CF90000D2F5AD /* InputFormAccessoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputFormAccessoryCell.swift; sourceTree = "<group>"; };
+		6BD7F83E2200575800F9BA19 /* FueledUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FueledUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +137,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BD7F83F2200575800F9BA19 /* FueledUtils.framework in Frameworks */,
 				0286CFA61BE27E4600F76C86 /* Result.framework in Frameworks */,
 				027BAC211DEF253500F97ACC /* ReactiveSwift.framework in Frameworks */,
+				6BD7F840220057C100F9BA19 /* FueledUtils.framework in Frameworks */,
 				0286CFA81BE27E4F00F76C86 /* ReactiveCocoa.framework in Frameworks */,
 				0286CFAA1BE27E5500F76C86 /* DataSource.framework in Frameworks */,
 			);
@@ -214,6 +221,7 @@
 		028F5EF81B57BDC30079FBFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6BD7F83E2200575800F9BA19 /* FueledUtils.framework */,
 				027BAC1D1DEF251F00F97ACC /* ReactiveSwift.framework */,
 				0286CFA91BE27E5500F76C86 /* DataSource.framework */,
 				0286CFA71BE27E4F00F76C86 /* ReactiveCocoa.framework */,
