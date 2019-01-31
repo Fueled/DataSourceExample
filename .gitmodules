@@ -6,7 +6,10 @@
 	url = https://github.com/ReactiveCocoa/ReactiveCocoa.git
 [submodule "Carthage/Checkouts/DataSource"]
 	path = Carthage/Checkouts/DataSource
-	url = https://github.com/Vadim-Yelagin/DataSource.git
+	url = https://github.com/Fueled/DataSource.git
 [submodule "Carthage/Checkouts/ReactiveSwift"]
 	path = Carthage/Checkouts/ReactiveSwift
 	url = https://github.com/ReactiveCocoa/ReactiveSwift.git
+[submodule "Carthage/Checkouts/ios-utilities"]
+	path = Carthage/Checkouts/ios-utilities
+	url = https://github.com/Fueled/ios-utilities.git
