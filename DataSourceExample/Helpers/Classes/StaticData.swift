@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StaticData {
+enum StaticData {
 
 	static let items = [
 		"Great Pyramid of Giza",
@@ -17,7 +17,7 @@ struct StaticData {
 		"Temple of Artemis at Ephesus",
 		"Mausoleum at Halicarnassus",
 		"Colossus of Rhodes",
-		"Lighthouse of Alexandria"
+		"Lighthouse of Alexandria",
 	].map { ExampleItem($0) }
 
 	static func randomItem() -> ExampleItem {
@@ -25,8 +25,8 @@ struct StaticData {
 	}
 
 	static func randomItems() -> [ExampleItem] {
-		let n = 3 + random(7)
-		return (0 ..< n).map { _ in self.randomItem() }
+		let randomNumber = 3 + random(7)
+		return (0 ..< randomNumber).map { _ in self.randomItem() }
 	}
 
 }

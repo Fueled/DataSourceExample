@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import Foundation
 import DataSource
 import ReactiveCocoa
 
@@ -19,9 +18,7 @@ final class AutoDiffViewModel: ExampleViewModel {
 	}
 
 	lazy var actions: [ExampleViewModelAction] = {
-		return [ExampleViewModelAction(title: "Random") {
-			[weak self] in self?.random()
-		}]
+		return [ExampleViewModelAction(title: "Random") { [weak self] in self?.random() }]
 	}()
 
 	let autoDiffDataSource = AutoDiffDataSource(StaticData.randomItems()) {

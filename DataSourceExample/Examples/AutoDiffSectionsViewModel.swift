@@ -6,9 +6,7 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import Foundation
 import DataSource
-import ReactiveCocoa
 import UIKit
 
 final class AutoDiffSectionsViewModel: ExampleViewModel {
@@ -20,9 +18,7 @@ final class AutoDiffSectionsViewModel: ExampleViewModel {
 	}
 
 	lazy var actions: [ExampleViewModelAction] = {
-		return [ExampleViewModelAction(title: "Random") {
-			[weak self] in self?.random()
-		}]
+		return [ExampleViewModelAction(title: "Random") { [weak self] in self?.random() }]
 	}()
 
 	let autoDiffDataSource = AutoDiffSectionsDataSource(
@@ -44,7 +40,7 @@ final class AutoDiffSectionsViewModel: ExampleViewModel {
 private func randomSections() -> [DataSourceSection<ExampleItem>] {
 	var sections: [DataSourceSection<ExampleItem>] = []
 	for i in 0 ..< 10 {
-		if arc4random_uniform(2) == 0 {
+		if Int.random(in: 0..<2) == 0 {
 			continue
 		}
 		let header = "Section \(RandomData.spell(i))"

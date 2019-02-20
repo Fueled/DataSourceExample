@@ -58,6 +58,7 @@
 		02FE33FE1B5CF80100D2F5AD /* InputFormAccessoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FE33FD1B5CF80100D2F5AD /* InputFormAccessoryItem.swift */; };
 		02FE34001B5CF90000D2F5AD /* InputFormAccessoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FE33FF1B5CF90000D2F5AD /* InputFormAccessoryCell.swift */; };
 		0D60944460BB8D964C5C93E3 /* Pods_DataSourceExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7057FF2AB4651986E0EB8D /* Pods_DataSourceExample.framework */; };
+		6B8EA0DE221D8D3400CC42B2 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8EA0DD221D8D3400CC42B2 /* UIColor+Extensions.swift */; };
 		6BD7F83F2200575800F9BA19 /* FueledUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD7F83E2200575800F9BA19 /* FueledUtils.framework */; };
 		6BD7F840220057C100F9BA19 /* FueledUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD7F83E2200575800F9BA19 /* FueledUtils.framework */; };
 		6BD7F841220057C100F9BA19 /* FueledUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD7F83E2200575800F9BA19 /* FueledUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -132,6 +133,7 @@
 		02FE33FD1B5CF80100D2F5AD /* InputFormAccessoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputFormAccessoryItem.swift; sourceTree = "<group>"; };
 		02FE33FF1B5CF90000D2F5AD /* InputFormAccessoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputFormAccessoryCell.swift; sourceTree = "<group>"; };
 		5D7057FF2AB4651986E0EB8D /* Pods_DataSourceExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DataSourceExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B8EA0DD221D8D3400CC42B2 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		6BD7F83E2200575800F9BA19 /* FueledUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FueledUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B490A3A6BF1AD862EF39FFB /* Pods-DataSourceExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DataSourceExample.debug.xcconfig"; path = "Target Support Files/Pods-DataSourceExample/Pods-DataSourceExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,11 +217,8 @@
 		024943441B57D731009110DE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				02FE33C01B57FC7C00D2F5AD /* RandomData.swift */,
-				024943491B57D7D4009110DE /* SplitHackDelegate.swift */,
-				02FE33C81B58369C00D2F5AD /* SplitHackViewController.swift */,
-				02FE33C61B58319000D2F5AD /* StaticData.swift */,
-				024943461B57D731009110DE /* UIExtensions.swift */,
+				6B8EA0DC221D8D0000CC42B2 /* Classes */,
+				6B8EA0DB221D8CED00CC42B2 /* Extensions */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -297,8 +296,27 @@
 				8B490A3A6BF1AD862EF39FFB /* Pods-DataSourceExample.debug.xcconfig */,
 				0197B55CF82446A36126A813 /* Pods-DataSourceExample.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		6B8EA0DB221D8CED00CC42B2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				024943461B57D731009110DE /* UIExtensions.swift */,
+				6B8EA0DD221D8D3400CC42B2 /* UIColor+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6B8EA0DC221D8D0000CC42B2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				02FE33C61B58319000D2F5AD /* StaticData.swift */,
+				02FE33C81B58369C00D2F5AD /* SplitHackViewController.swift */,
+				024943491B57D7D4009110DE /* SplitHackDelegate.swift */,
+				02FE33C01B57FC7C00D2F5AD /* RandomData.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,6 +478,7 @@
 				02FE33C71B58319000D2F5AD /* StaticData.swift in Sources */,
 				02FE33E71B5BFFD900D2F5AD /* InputFormSwitchCell.swift in Sources */,
 				024943411B57CE23009110DE /* StaticItemsViewModel.swift in Sources */,
+				6B8EA0DE221D8D3400CC42B2 /* UIColor+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

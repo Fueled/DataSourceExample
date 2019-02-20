@@ -6,9 +6,7 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import Foundation
 import DataSource
-import ReactiveCocoa
 import UIKit
 
 final class CompositeViewModel: ExampleViewModel {
@@ -20,20 +18,17 @@ final class CompositeViewModel: ExampleViewModel {
 	}()
 
 	lazy var actions: [ExampleViewModelAction] = {
-		return [ExampleViewModelAction(title: "Random 1") {
-			[weak self] in self?.random1()
-		}, ExampleViewModelAction(title: "Random 2") {
-			[weak self] in self?.random2()
-		}]
+		return [ExampleViewModelAction(title: "Random 1") { [weak self] in self?.random1() },
+				ExampleViewModelAction(title: "Random 2") { [weak self] in self?.random2() }, ]
 	}()
 
-	let autoDiff1 = AutoDiffDataSource(StaticData.randomItems(),
-		supplementaryItems: [UICollectionView.elementKindSectionHeader: "First Auto Diff"])
-		{ $0.title == $1.title }
+	let autoDiff1 = AutoDiffDataSource(StaticData.randomItems(), supplementaryItems: [UICollectionView.elementKindSectionHeader: "First Auto Diff"]) {
+		$0.title == $1.title
+	}
 
-	let autoDiff2 = AutoDiffDataSource(StaticData.randomItems(),
-		supplementaryItems: [UICollectionView.elementKindSectionHeader: "Second Auto Diff"])
-		{ $0.title == $1.title }
+	let autoDiff2 = AutoDiffDataSource(StaticData.randomItems(), supplementaryItems: [UICollectionView.elementKindSectionHeader: "Second Auto Diff"]) {
+		$0.title == $1.title
+	}
 
 	func random1() {
 		self.autoDiff1.items.value = StaticData.randomItems()

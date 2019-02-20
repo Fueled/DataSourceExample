@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 @objc class ExampleViewModelAction: NSObject {
-
+	//swiftlint:disable indentation_character
 	let title: String
-    let perform: () -> Void
+	let perform: () -> Void
 
     init(title: String, perform: @escaping () -> Void) {
 		self.title = title

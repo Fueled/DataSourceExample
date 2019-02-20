@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import UIKit
 import DataSource
+import UIKit
 
 private func space() -> UIBarButtonItem {
 	return UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -15,8 +15,8 @@ private func space() -> UIBarButtonItem {
 
 class ExampleViewController: UIViewController, UITableViewDelegate, UICollectionViewDelegateFlowLayout {
 
-	@IBOutlet var tableView: UITableView?
-	@IBOutlet var collectionView: UICollectionView?
+	@IBOutlet private var tableView: UITableView?
+	@IBOutlet private var collectionView: UICollectionView?
 
 	let tableDataSource = TableViewDataSourceWithHeaderFooterTitles()
 	let collectionDataSource = CollectionViewDataSource()
@@ -29,19 +29,19 @@ class ExampleViewController: UIViewController, UITableViewDelegate, UICollection
 				self.collectionDataSource.dataSource.innerDataSource.value = viewModel.dataSource
 				self.toolbarItems = viewModel.actions.flatMap {
 					[space(), $0.barButtonItem()]
-					} + [space()]
+				} + [space()]
 			}
 		}
 	}
 
-	@IBAction func toggleView() {
+	@IBAction private func toggleView() {
 		if let tableView = self.tableView,
 			let collectionView = self.collectionView
 		{
 			UIView.animate(withDuration: 0.35, animations: {
 				tableView.alpha = 1 - tableView.alpha
 				collectionView.alpha = 1 - collectionView.alpha
-			}) 
+			})
 		}
 	}
 
@@ -88,20 +88,13 @@ class ExampleViewController: UIViewController, UITableViewDelegate, UICollection
 		self.selectItemAtIndexPath(indexPath)
 	}
 
-	func collectionView(_ collectionView: UICollectionView,
-		layout collectionViewLayout: UICollectionViewLayout,
-		referenceSizeForHeaderInSection section: Int)
-		-> CGSize
-	{
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
 		if let viewModel = self.viewModel,
-			let _ = viewModel.dataSource.supplementaryItemOfKind(
-				UICollectionView.elementKindSectionHeader,
-				inSection: section)
+			viewModel.dataSource.supplementaryItemOfKind(UICollectionView.elementKindSectionHeader, inSection: section) != nil
 		{
 			return CGSize(width: 44, height: 44)
 		} else {
 			return CGSize.zero
 		}
 	}
-	
 }

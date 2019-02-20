@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import UIKit
 import DataSource
+import UIKit
 
 class EditingViewController: UIViewController, UITableViewDelegate {
 
-	@IBOutlet var tableView: UITableView?
+	@IBOutlet private var tableView: UITableView?
 
 	let tableDataSource = EditingTableViewDataSource()
 
@@ -33,7 +33,7 @@ class EditingViewController: UIViewController, UITableViewDelegate {
 		self.tableView?.endUpdates()
 	}
 
-	@IBAction func add() {
+	@IBAction private func add() {
 		self.tableDataSource.mutableDataSource.insertItem(StaticData.randomItem(), at: 0)
 	}
 

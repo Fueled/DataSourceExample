@@ -8,7 +8,6 @@
 
 import Foundation
 import ReactiveSwift
-import ReactiveCocoa
 import Result
 
 protocol InputFormOptionItemProtocol: InputFormItem {

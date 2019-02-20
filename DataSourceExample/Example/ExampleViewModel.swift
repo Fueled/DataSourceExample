@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import Foundation
 import DataSource
+import Foundation
 
 protocol ExampleViewModel: AnyObject {
 

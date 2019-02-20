@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import Foundation
 import DataSource
 import ReactiveCocoa
 
@@ -19,48 +18,43 @@ final class MutableViewModel: ExampleViewModel {
 	}
 
 	lazy var actions: [ExampleViewModelAction] = {
-		return [ExampleViewModelAction(title: "Insert") {
-			[weak self] in self?.randomInsert()
-		}, ExampleViewModelAction(title: "Delete") {
-			[weak self] in self?.randomDelete()
-		}, ExampleViewModelAction(title: "Move") {
-			[weak self] in self?.randomMove()
-		}, ExampleViewModelAction(title: "Replace") {
-			[weak self] in self?.randomReplace()
-		}]
+		return [ExampleViewModelAction(title: "Insert") { [weak self] in self?.randomInsert() },
+				ExampleViewModelAction(title: "Delete") { [weak self] in self?.randomDelete() },
+				ExampleViewModelAction(title: "Move") { [weak self] in self?.randomMove() },
+				ExampleViewModelAction(title: "Replace") { [weak self] in self?.randomReplace() }, ]
 	}()
 
 	let mutableDataSource = MutableDataSource(StaticData.randomItems())
 
 	func randomInsert() {
-		let n = mutableDataSource.items.value.count
-		let i = random(n + 1)
-		self.mutableDataSource.insertItem(StaticData.randomItem(), at: i)
+		let itemsCount = mutableDataSource.items.value.count
+		let randomNumber = random(itemsCount + 1)
+		self.mutableDataSource.insertItem(StaticData.randomItem(), at: randomNumber)
 	}
 
 	func randomDelete() {
-		let n = mutableDataSource.items.value.count
-		if n >= 1 {
-			let i = random(n)
-			self.mutableDataSource.deleteItem(at: i)
+		let itemsCount = mutableDataSource.items.value.count
+		if itemsCount >= 1 {
+			let randomNumber = random(itemsCount)
+			self.mutableDataSource.deleteItem(at: randomNumber)
 		}
 	}
 
 	func randomMove() {
-		let n = mutableDataSource.items.value.count
-		if n >= 2 {
-			let i = random(n)
-			let j0 = random(n - 1)
-			let j = (j0 < i) ? j0 : (j0 + 1)
-			self.mutableDataSource.moveItem(at: i, to: j)
+		let itemsCount = mutableDataSource.items.value.count
+		if itemsCount >= 2 {
+			let randomNumber = random(itemsCount)
+			let randomNumber2 = random(itemsCount - 1)
+			let destinationIndex = (randomNumber2 < randomNumber) ? randomNumber2 : (randomNumber2 + 1)
+			self.mutableDataSource.moveItem(at: randomNumber, to: destinationIndex)
 		}
 	}
 
 	func randomReplace() {
-		let n = mutableDataSource.items.value.count
-		if n >= 1 {
-			let i = random(n)
-			self.mutableDataSource.replaceItem(at: i, with: StaticData.randomItem())
+		let itemsCount = mutableDataSource.items.value.count
+		if itemsCount >= 1 {
+			let randomNumber = random(itemsCount)
+			self.mutableDataSource.replaceItem(at: randomNumber, with: StaticData.randomItem())
 		}
 	}
 

@@ -6,14 +6,13 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import UIKit
 import DataSource
 import ReactiveSwift
-import ReactiveCocoa
+import UIKit
 
 class InputFormDatePickerCell: TableViewCell {
 
-	@IBOutlet var datePicker: UIDatePicker!
+	@IBOutlet private var datePicker: UIDatePicker!
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -30,7 +29,7 @@ class InputFormDatePickerCell: TableViewCell {
 		self.datePicker?.date = value
 	}
 
-	@IBAction func onEditing(_ datePicker: UIDatePicker) {
+	@IBAction private func onEditing(_ datePicker: UIDatePicker) {
 		if let item = self.cellModel.value as? InputFormDateItem {
 			item.property.value = datePicker.date
 		}
