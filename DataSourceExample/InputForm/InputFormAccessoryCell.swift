@@ -6,19 +6,18 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import UIKit
 import DataSource
 import ReactiveSwift
-import ReactiveCocoa
+import UIKit
 
 class InputFormAccessoryCell: TableViewCell {
 
-	@IBOutlet var titleLabel: UILabel!
-	@IBOutlet var valueLabel: UILabel!
+	@IBOutlet private var titleLabel: UILabel!
+	@IBOutlet private var valueLabel: UILabel!
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		
+
 		let items = self.cellModel.producer
 			.map { $0 as? InputFormAccessoryItem }
 			.skipNil()
@@ -31,7 +30,7 @@ class InputFormAccessoryCell: TableViewCell {
 
 		self.valueLabel.reactive.textColor <~ items
 			.flatMapLatest { $0.expanded.producer }
-			.map { $0 ? UIColor(red: 0.75, green: 0, blue: 0, alpha: 1) : UIColor.black }
+			.map { $0 ? UIColor.DataSourceExample.red : UIColor.black }
 	}
 
 }

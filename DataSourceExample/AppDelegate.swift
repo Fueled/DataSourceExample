@@ -13,10 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-	func application(_ application: UIApplication,
-		didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
 	{
-		self.window?.tintColor = UIColor(red: 0.75, green: 0, blue: 0, alpha: 1)
+		self.window?.tintColor = UIColor.DataSourceExample.red
 		return true
 	}
 

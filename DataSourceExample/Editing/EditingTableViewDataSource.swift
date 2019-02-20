@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import UIKit
 import DataSource
+import UIKit
 
 class EditingTableViewDataSource: TableViewDataSource {
 
@@ -22,9 +22,7 @@ class EditingTableViewDataSource: TableViewDataSource {
 		return true
 	}
 
-	func tableView(_ tableView: UITableView,
-		commitEditingStyle editingStyle: UITableViewCell.EditingStyle,
-		forRowAtIndexPath indexPath: IndexPath)
+	func tableView(_ tableView: UITableView, commitEditingStyle editingStyle: UITableViewCell.EditingStyle, forRowAtIndexPath indexPath: IndexPath)
 	{
 		self.mutableDataSource.deleteItem(at: indexPath.row)
 	}
@@ -33,9 +31,7 @@ class EditingTableViewDataSource: TableViewDataSource {
 		return true
 	}
 
-	func tableView(_ tableView: UITableView,
-		moveRowAtIndexPath sourceIndexPath: IndexPath,
-		toIndexPath destinationIndexPath: IndexPath)
+	func tableView(_ tableView: UITableView, moveRowAtIndexPath sourceIndexPath: IndexPath, toIndexPath destinationIndexPath: IndexPath)
 	{
 		self.mutableDataSource.moveItem(at: sourceIndexPath.row, to: destinationIndexPath.row)
 	}

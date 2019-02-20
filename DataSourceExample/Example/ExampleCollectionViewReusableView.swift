@@ -6,14 +6,13 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import UIKit
 import DataSource
 import ReactiveSwift
-import ReactiveCocoa
+import UIKit
 
 class ExampleCollectionViewReusableView: CollectionViewReusableView {
 
-	@IBOutlet var titleLabel: UILabel!
+	@IBOutlet private var titleLabel: UILabel!
 
 	override func awakeFromNib() {
 		super.awakeFromNib()

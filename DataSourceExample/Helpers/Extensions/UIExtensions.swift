@@ -6,10 +6,9 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import Foundation
-import UIKit
 import ReactiveSwift
 import Result
+import UIKit
 
 extension UITableView {
 
@@ -35,7 +34,7 @@ extension UICollectionView {
 
 }
 
-public extension SignalProducer where Error == NoError {
+extension SignalProducer where Error == NoError {
 
 	public func flatMapLatest<U>(_ transform: @escaping (Value) -> SignalProducer<U, NoError>) -> SignalProducer<U, NoError> {
 		return flatMap(.latest, transform)
@@ -45,8 +44,7 @@ public extension SignalProducer where Error == NoError {
 
 extension Reactive where Base: NSObject {
 	public func target<U>(action: @escaping (Base, U) -> Void) -> BindingTarget<U> {
-		return BindingTarget(on: ImmediateScheduler(), lifetime: lifetime) {
-			[weak base = self.base] value in
+		return BindingTarget(on: ImmediateScheduler(), lifetime: lifetime) { [weak base = self.base] value in
 			if let base = base {
 				action(base, value)
 			}

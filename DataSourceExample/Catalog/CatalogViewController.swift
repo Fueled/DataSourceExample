@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import UIKit
 import DataSource
+import UIKit
 
 class CatalogViewController: UIViewController {
 
-	@IBOutlet var tableView: UITableView?
+	@IBOutlet private var tableView: UITableView?
 
 	let tableDataSource = TableViewDataSource()
 
@@ -26,7 +26,7 @@ class CatalogViewController: UIViewController {
 			CatalogItem(title: "Composite") { CompositeViewModel() },
 			CatalogItem(title: "Mutable") { MutableViewModel() },
 			CatalogStaticItem(reuseIdentifier: "Editing"),
-			CatalogStaticItem(reuseIdentifier: "InputForm")
+			CatalogStaticItem(reuseIdentifier: "InputForm"),
 		]
 		self.tableDataSource.dataSource.innerDataSource.value = StaticDataSource(items: items)
 		self.tableDataSource.reuseIdentifierForItem = {
@@ -56,13 +56,13 @@ class CatalogViewController: UIViewController {
 	}
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if let nc = segue.destination as? UINavigationController,
-			let vc = nc.topViewController as? ExampleViewController,
+		if let navigationController = segue.destination as? UINavigationController,
+			let exampleViewController = navigationController.topViewController as? ExampleViewController,
 			let cell = sender as? CatalogCell,
 			let cellModel = cell.cellModel.value as? CatalogItem,
 			segue.identifier == "ShowExampleSegue"
 		{
-			vc.viewModel = cellModel.viewModel()
+			exampleViewController.viewModel = cellModel.viewModel()
 		}
 	}
 

@@ -6,14 +6,13 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import UIKit
 import DataSource
 import ReactiveSwift
-import ReactiveCocoa
+import UIKit
 
 class ExampleCollectionViewCell: CollectionViewCell {
 
-	@IBOutlet var titleLabel: UILabel!
+	@IBOutlet private var titleLabel: UILabel!
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -27,12 +26,11 @@ class ExampleCollectionViewCell: CollectionViewCell {
 
 		self.titleLabel.reactive.textColor <~ items
 			.flatMapLatest { $0.on.producer }
-			.map { $0 ? UIColor(red: 0.75, green: 0, blue: 0, alpha: 1) : UIColor.black }
+			.map { $0 ? UIColor.DataSourceExample.red : UIColor.black }
 	}
 
 	func updateBackground() {
-		self.backgroundColor = (self.isHighlighted || self.isSelected)
-			? .lightGray : .groupTableViewBackground
+		self.backgroundColor = (self.isHighlighted || self.isSelected) ? .lightGray : .groupTableViewBackground
 	}
 
 	override var isSelected: Bool {

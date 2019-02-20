@@ -6,14 +6,13 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import UIKit
 import DataSource
 import ReactiveSwift
-import ReactiveCocoa
+import UIKit
 
 class InputFormTextFieldCell: TableViewCell {
 
-	@IBOutlet var textField: UITextField!
+	@IBOutlet private var textField: UITextField!
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -36,7 +35,7 @@ class InputFormTextFieldCell: TableViewCell {
 		self.textField?.isSecureTextEntry = item.secureTextEntry
 	}
 
-	@IBAction func onEditing(_ textField: UITextField) {
+	@IBAction private func onEditing(_ textField: UITextField) {
 		if let item = self.cellModel.value as? InputFormTextItem {
 			item.property.value = textField.text ?? ""
 		}

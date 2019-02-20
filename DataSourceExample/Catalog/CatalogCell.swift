@@ -6,18 +6,17 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import UIKit
 import DataSource
 import ReactiveSwift
-import ReactiveCocoa
+import UIKit
 
 class CatalogCell: TableViewCell {
 
-	@IBOutlet var titleLabel: UILabel!
+	@IBOutlet private var titleLabel: UILabel!
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		
+
 		let items = self.cellModel.producer
 			.map { $0 as? CatalogItem }
 			.skipNil()

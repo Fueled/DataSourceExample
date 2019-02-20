@@ -6,10 +6,8 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import Foundation
 import DataSource
 import UIKit
-import ReactiveCocoa
 
 final class ProxyViewModel: ExampleViewModel {
 
@@ -20,9 +18,7 @@ final class ProxyViewModel: ExampleViewModel {
 	}
 
 	lazy var actions: [ExampleViewModelAction] = {
-		return [ExampleViewModelAction(title: "Random") {
-			[weak self] in self?.random()
-		}]
+		return [ExampleViewModelAction(title: "Random") { [weak self] in self?.random() }]
 	}()
 
 	let proxyDataSource: ProxyDataSource = {

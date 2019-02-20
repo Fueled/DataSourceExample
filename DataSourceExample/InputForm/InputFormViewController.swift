@@ -6,14 +6,13 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import UIKit
 import DataSource
 import ReactiveSwift
-import ReactiveCocoa
+import UIKit
 
 class InputFormViewController: UIViewController, UITableViewDelegate {
 
-	@IBOutlet var tableView: UITableView?
+	@IBOutlet private var tableView: UITableView?
 
 	let data = InputFormData()
 	let tableDataSource = TableViewDataSource()
@@ -49,8 +48,7 @@ class InputFormViewController: UIViewController, UITableViewDelegate {
 		let static2 = StaticDataSource(items: items2)
 		let empty2 = EmptyDataSource()
 		let proxy2 = ProxyDataSource(empty2)
-		disposable += proxy2.innerDataSource <~ data.sendSpam.producer.map {
-			(sendSpam: Bool) -> DataSource in
+		disposable += proxy2.innerDataSource <~ data.sendSpam.producer.map { (sendSpam: Bool) -> DataSource in
 			return sendSpam ? static2 : empty2
 		}
 
@@ -78,7 +76,7 @@ class InputFormViewController: UIViewController, UITableViewDelegate {
 		self.tableView?.endUpdates()
 	}
 
-	@IBAction func showData() {
+	@IBAction private func showData() {
 		let date = DateFormatter.localizedString(from: data.date.value, dateStyle: .short, timeStyle: .short)
 		let message = "Full Name: \(data.name.value)\nEmail Address: \(data.email.value)\nSend SPAM: \(data.sendSpam.value)\nPeriod: \(data.period.value.title)\nZIP Code: \(data.zip.value)\nDate: \(date)\nPassword: \(data.password.value)"
 		let alert = UIAlertController(title: "Data", message: message, preferredStyle: .alert)
@@ -97,9 +95,7 @@ class InputFormViewController: UIViewController, UITableViewDelegate {
 		}
 	}
 
-	func tableView(_ tableView: UITableView,
-		didSelectRowAt indexPath: IndexPath)
-	{
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectAllRows(true)
 		if let item = self.tableDataSource.dataSource.item(at: indexPath) as? InputFormItem {
 			item.select()

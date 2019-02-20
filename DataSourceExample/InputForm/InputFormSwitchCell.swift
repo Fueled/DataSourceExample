@@ -6,15 +6,14 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import UIKit
 import DataSource
 import ReactiveSwift
-import ReactiveCocoa
+import UIKit
 
 class InputFormSwitchCell: TableViewCell {
 
-	@IBOutlet var titleLabel: UILabel!
-	@IBOutlet var switchControl: UISwitch!
+	@IBOutlet private var titleLabel: UILabel!
+	@IBOutlet private var switchControl: UISwitch!
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -30,7 +29,7 @@ class InputFormSwitchCell: TableViewCell {
 			.flatMapLatest { $0.property.producer }
 	}
 
-	@IBAction func onEditing(_ switchControl: UISwitch) {
+	@IBAction private func onEditing(_ switchControl: UISwitch) {
 		if let cellModel = self.cellModel.value as? InputFormBoolItem {
 			cellModel.property.value = switchControl.isOn
 		}

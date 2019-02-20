@@ -19,4 +19,10 @@
    <FileRef
       location = "group:Carthage/Checkouts/DataSource/DataSource.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:DataSourceExample.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
 </Workspace>

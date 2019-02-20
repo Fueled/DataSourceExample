@@ -6,9 +6,8 @@
 //  Copyright (c) 2015 Fueled. All rights reserved.
 //
 
-import UIKit
-import Foundation
 import ReactiveSwift
+import UIKit
 
 struct InputFormTextItem: InputFormItem {
 
